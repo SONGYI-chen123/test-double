@@ -15,6 +15,8 @@ import static org.mockito.Mockito.*;
 
 public class mockitoTest {
     SecurityCenter securityCenter;
+    GradeService gradeService;
+    GradeSystem gradeSystem;
     @Test
     public  void mockito_test_mock(){
         DoorPanel mockDoorPanel = mock(DoorPanel.class);
@@ -28,7 +30,8 @@ public class mockitoTest {
         GradeSystem stubgradesystem = mock(GradeSystem.class);
         List<Double> grade = Arrays.asList(90.0, 95.0, 100.0);
         when(stubgradesystem.gradesFor(99900l)).thenReturn(grade);
-        System.out.println(stubgradesystem.gradesFor(99900l));
+        Double result = gradeService.calculateAverageGrades(10L);
+        Assertions.assertEquals(90.0,result)
     }
 
 }
